@@ -110,11 +110,11 @@ class Frames {
     @property double dataRate() { return dataRate_; }
 
     void resize(uint frames, uint channels = 1) {
-        data_ = new double[frames * channels];
-        data_[0 .. $] = 0.0;
+        resize(frames, channels, 0.0);
     }
 
     void resize(uint frames, uint channels, double value ) {
+        // TODO : optimize
         data_ = new double[frames * channels];
         data_[0 .. $] = value;
     }
@@ -147,4 +147,7 @@ unittest {
 
     frames.resize(100, 2, 0.5);
     assert(0.5 == frames[1]);
+
+    frames.resize(100, 2);
+    assert(0.0 == frames[2]);
 }

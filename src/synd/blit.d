@@ -101,7 +101,8 @@ unittest {
     Blit blit = new Blit(44100.0);
     blit.harmonics = 10;
     double acc = 0.0;
-    for (int i = 0; i < 100; i++) acc += fabs(blit.tick());
+    //for (int i = 0; i < 100; i++) acc += fabs(blit.tick());
+    foreach (i; 0..100) acc += fabs(blit.tick());
     assert(acc > 0.0);
 }
 
@@ -182,7 +183,8 @@ unittest {
     BlitSaw blit = new BlitSaw(44100.0);
     blit.harmonics = 10;
     double acc = 0.0;
-    for (int i = 0; i < 100; i++) acc += fabs(blit.tick());
+    //for (int i = 0; i < 100; i++) acc += fabs(blit.tick());
+    foreach (i; 0..100) acc += fabs(blit.tick());
     assert(acc > 0.0);
 }
 
@@ -279,6 +281,7 @@ unittest {
     BlitSquare blit = new BlitSquare(44100.0);
     blit.harmonics = 10;
     double acc = 0.0;
-    for (int i = 0; i < 100; i++) acc += fabs(blit.tick());
+    //for (int i = 0; i < 100; i++) acc += fabs(blit.tick());
+    foreach (i; 0..100) acc += fabs(blit.tick());
     assert(acc > 0.0);
 }

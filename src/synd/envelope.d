@@ -99,16 +99,16 @@ unittest {
 
     adsr.on();
     assert(ADSR.A == adsr.state);
-    for (uint i = 0; i < 11; i++) adsr.tick();
+    foreach (i; 0..11) adsr.tick();
     assert(abs(1.0 - adsr.lastOut()) < 0.001);
     assert(ADSR.D == adsr.state); 
-    for (uint i = 0; i < 6;  i++) adsr.tick();
+    foreach (i; 0..6) adsr.tick();
     assert(abs(0.5 - adsr.lastOut()) < 0.001);
     assert(ADSR.S == adsr.state);  
 
     adsr.off();
     assert(ADSR.R == adsr.state);
-    for (uint i = 0; i < 20; i++) adsr.tick();
+    foreach (i; 0..20) adsr.tick();
     assert(0.0 == adsr.lastOut());
 }
 
@@ -209,11 +209,11 @@ unittest {
     env.time = 0.1;
 
     env.on();
-    for (uint i = 0; i < 10; i++)  env.tick();
+    foreach (i; 0..10)  env.tick();
     assert(abs(env.tick() - 1.0) < 0.001);
 
     env.off();
-    for (uint i = 0; i < 10; i++)  env.tick();
+    foreach (i; 0..10)  env.tick();
     assert(env.tick() < 0.001);
 }
 
@@ -273,6 +273,5 @@ class Envelope : Generator {
 unittest {
     Envelope env = new Envelope();
     env.time = 10;
-
-    
+    // TODO
 }
